@@ -23,4 +23,10 @@ class SchoolClass extends Model
         return $this->hasMany(Planning::class);
     }
 
+
+    public function teacher()
+    {
+        return $this->belongsTo(Profile::class, 'teacher_id');
+    }
+
 }
