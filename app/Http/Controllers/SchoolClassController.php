@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class SchoolClassController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(SchoolClass::class, 'absence');
+        }
     /**
      * Display a listing of the resource.
      */

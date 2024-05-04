@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Facturation;
 use Illuminate\Http\Request;
 
 class FacturationController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->authorizeResource(Facturation::class, 'facturation');
+      }
     public function index()
     {
         //

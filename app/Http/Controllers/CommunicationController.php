@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Communication;
 use Illuminate\Http\Request;
 
 class CommunicationController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->authorizeResource(Communication::class, 'communication');
+      }
     public function index()
     {
         //

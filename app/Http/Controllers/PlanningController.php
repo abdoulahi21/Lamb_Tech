@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Planning;
 use Illuminate\Http\Request;
 
 class PlanningController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->authorizeResource(Planning::class, 'planning');
+      }
     public function index()
     {
         //
