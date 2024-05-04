@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SchoolClasseRequest;
 use App\Models\SchoolClass;
 use Illuminate\Http\Request;
 
@@ -27,21 +28,13 @@ class SchoolClassController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SchoolClasseRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'level' => 'required|string',
-            'teacher_id' => 'required|exists:profiles,id',
-            'monthly_amount' => 'required|integer',
-            'registration_amount' => 'required|integer',
-            'month_required' => 'integer',
-        ]);
 
         SchoolClass::create($request->all());
 
         return redirect()->route('classes.index')
-            ->with('success', 'Classe créée avec succès.');
+            ->with('success', 'Class created successfully.');
     }
 
     /**
@@ -63,21 +56,14 @@ class SchoolClassController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SchoolClass $sc)
+    public function update(SchoolClasseRequest $request, SchoolClass $sc)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'level' => 'required|string',
-            'teacher_id' => 'required|exists:profiles,id',
-            'monthly_amount' => 'required|integer',
-            'registration_amount' => 'required|integer',
-            'month_required' => 'integer',
-        ]);
+
 
         $sc->update($request->all());
 
         return redirect()->route('classes.index')
-            ->with('success', 'Classe mise à jour avec succès.');
+            ->with('success', 'Class updated successfully.');
     }
 
     /**
@@ -88,6 +74,6 @@ class SchoolClassController extends Controller
         $sc->delete();
 
         return redirect()->route('classes.index')
-            ->with('success', 'Classe supprimée avec succès.');
+            ->with('success', 'Class deleted successfully.');
     }
 }
