@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('status')->default('active');
             //$table->string('responsable_name')->nullable();
+            $table->foreignId('schoolclass_id')->constrained('school_classes')->onDelete('cascade');
             $table->string('address')->nullable();
             $table->string('gender');
             $table->string('image');
