@@ -31,8 +31,8 @@ class Profile extends Model
     {
         return $this->hasMany(SchoolClass::class, 'teacher_id');
     }
-    public function registrations()
+    public function schoolclasses()
     {
-        return $this->hasMany(Registration::class, 'profile_id');
+        return $this->belongsToMany(SchoolClass::class, 'registrations');
     }
 }
