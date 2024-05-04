@@ -14,7 +14,6 @@
 <body>
 @yield('content')
 
-<h1 class="text-center mt-5">Tom Select</h1>
 <script>
     var selects = document.querySelectorAll('.tom-select');
     for (var i = 0; i < selects.length; i++) {

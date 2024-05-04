@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('base');
+    return view('dashboard');
 });
 Route::prefix('manager')->group(function () {
     Route::resource('communication', CommunicationController::class);
