@@ -11,24 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('school_classes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('level');
-
+        Schema::table('school_classes', function (Blueprint $table) {
             $table->foreignId('teacher_id')->constrained('profiles')->onDelete('cascade');
-            $table->integer('monthly_amount');
-            $table->integer('registration_amount');
-            $table->integer('month_required')->default(9);
-
-
-
-
-
-
-
-
-            $table->timestamps();
         });
     }
 
@@ -37,6 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('school_classes');
+        Schema::table('school_classes', function (Blueprint $table) {
+            $table->dropForeign(['teacher_id']);
+            $table->dropColumn('teacher_id');
+        });
     }
 };
