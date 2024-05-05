@@ -9,6 +9,7 @@ use App\Models\Registration;
 use App\Models\SchoolClass;
 use App\Models\Student; // Ajoutez le modèle Student
 use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -120,11 +121,13 @@ class RegistrationController extends Controller
         $student = new User();
         $student->email = $email;
         $student->password = Hash::make('passer@123');
+        $student->role = 'student';
         $student->save();
 //parent
         $parent = new User();
         $parent->email = $parentProfile->parent_email;
         $parent->password = Hash::make('passer@123');
+        $parent->role = 'parent';
         $parent->save();
 
 

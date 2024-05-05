@@ -6,6 +6,7 @@
     <title>Inscription d'un étudiant</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         /* Style pour cacher les sections par défaut */
         .form-section {
@@ -147,7 +148,7 @@
                         </div>
                         <div>
                             <label for="monthly_amount" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Mensualite</label>
-                            <input id="monthly_amount" name="monthly_amount" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                            <input id="monthly_amount" value="" name="monthly_amount" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                         </div>
                     </div>
 
@@ -212,6 +213,7 @@
 
     document.getElementById('schoolclass_id').addEventListener('change', function() {
         let schoolclassId = this.value;
+        console.log(schoolclassId)
         axios.get(`/manager/registration/${schoolclassId}`)
             .then(function(response) {
                 var schoolclassDetails = response.data;
