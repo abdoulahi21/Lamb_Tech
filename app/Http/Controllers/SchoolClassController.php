@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SchoolClasseRequest;
+use App\Models\Profile;
 use App\Models\SchoolClass;
 use Illuminate\Http\Request;
 
@@ -17,8 +18,7 @@ class SchoolClassController extends Controller
      */
     public function index()
     {
-        $classes = SchoolClass::all();
-        return view('classes.index', ['classes' => $classes]);
+        return view('schoolclasses.index', ['classes' => SchoolClass::all() ]);
     }
 
     /**
@@ -26,7 +26,9 @@ class SchoolClassController extends Controller
      */
     public function create()
     {
-        return view('classes.create');
+        $teachers = Profile::all();
+        $schoolClass = new SchoolClass();
+        return view('schoolclasses.create',['schoolClass' => $schoolClass],['teachers' => $teachers]);
     }
 
     /**
@@ -37,7 +39,7 @@ class SchoolClassController extends Controller
 
         SchoolClass::create($request->all());
 
-        return redirect()->route('classes.index')
+        return view('schoolclasses.index')
             ->with('success', 'Class created successfully.');
     }
 
