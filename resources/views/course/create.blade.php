@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('title', $courses->exists ? 'Modifier une classe' : 'Ajouter une classe')
+@section('title', $courses->exists ? 'Modifier une cour' : 'Ajouter une cour')
 
 @section('contents')
 

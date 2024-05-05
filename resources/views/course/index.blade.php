@@ -5,8 +5,8 @@
 @section('contents')
 
     <div class="flex justify-between">
-        <h1 class="text-3xl font-bold">Classes</h1>
-        <a href="{{ route('manager.course.create') }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter une classe</a>
+        <h1 class="text-3xl font-bold">Cours</h1>
+        <a href="{{ route('manager.course.create') }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter une cour</a>
     </div>
     <div class="flex flex-col mt-8">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
