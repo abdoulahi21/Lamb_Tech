@@ -10,7 +10,6 @@ class AuthController extends Controller
 {
     public function login()
     {
-
         return view('login.login');
     }
     public function doLogin(LoginRequest $request)
@@ -19,7 +18,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect()->route('/');
+            return redirect()->route('manager.home');
         }
         return back()->withErrors([
             'email' => 'Identifiants incorrect',
