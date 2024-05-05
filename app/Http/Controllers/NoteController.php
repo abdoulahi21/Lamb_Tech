@@ -33,7 +33,7 @@ class NoteController extends Controller
     {
         //je veux recuperer les utilisateurs qui ont comme role teacher
         $teachers = User::where('role', 'professeur')->get();
-        $students = User::where('role', 'etudiant')->get();
+        $students = User::where('role', 'student')->get();
         $note= new Note();
         return view('note.create', compact('teachers', 'students', 'note'));
     }

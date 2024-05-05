@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('title', $note->exists ? 'Modifier une classe' : 'Ajouter une classe')
+@section('title', $note->exists ? 'Modifier une note' : 'Ajouter une note')
 
 @section('contents')
 
@@ -17,8 +17,8 @@
             @endif
 
             <div>
-                <label for="note" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nom</label>
-                <input type="text" name="note" id="note" value="{{ old('note', $note->note) }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                <label for="note" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Note</label>
+                <input type="number" name="note" id="note" value="{{ old('note', $note->note) }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                 @error('note')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
