@@ -18,7 +18,8 @@ class SchoolClassController extends Controller
      */
     public function index()
     {
-        return view('schoolclasses.index', ['classes' => SchoolClass::all() ]);
+        $classes = SchoolClass::all();
+        return view('schoolclasses.index', compact('classes'));
     }
 
     /**
@@ -78,7 +79,6 @@ class SchoolClassController extends Controller
     public function destroy(SchoolClass $sc)
     {
         $sc->delete();
-
         return redirect()->route('classes.index')
             ->with('success', 'Class deleted successfully.');
     }

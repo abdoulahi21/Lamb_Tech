@@ -26,11 +26,19 @@
 
             <div class="mt-4">
                 <label for="level" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Niveau</label>
-                <input type="text" name="level" id="level" value="{{ old('level', $schoolClass->level) }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                <select name="level" id="level" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <option value="">Sélectionner le niveau</option>
+                    <option value="Licence 1" {{ old('level', $schoolClass->level) === 'Licence 1' ? 'selected' : '' }}>Licence 1</option>
+                    <option value="Licence 2" {{ old('level', $schoolClass->level) === 'Licence 2' ? 'selected' : '' }}>Licence 2</option>
+                    <option value="Licence 3" {{ old('level', $schoolClass->level) === 'Licence 3' ? 'selected' : '' }}>Licence 3</option>
+                    <option value="Master 1" {{ old('level', $schoolClass->level) === 'Master 1' ? 'selected' : '' }}>Master 1</option>
+                    <option value="Master 2" {{ old('level', $schoolClass->level) === 'Master 2' ? 'selected' : '' }}>Master 2</option>
+                </select>
                 @error('level')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
+
 
             <div class="mt-4">
                 <label for="monthly_amount" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Montant mensuel</label>
