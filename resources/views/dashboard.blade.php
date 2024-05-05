@@ -403,10 +403,10 @@
                             </li>
                             <li>
                                 {{--  Pour se deconnecter                              --}}
-                                <form method="POST" action="{{--{{ route('logout') }}--}}">
+                                <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{--{{ route('logout') }}--}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" onclick="event.preventDefault();
+                                    <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" onclick="event.preventDefault();
                                     this.closest('form').submit();">Logout</a>
                                 </form>
                             </li>

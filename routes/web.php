@@ -41,6 +41,7 @@ Route::get('/', function () {
         'profile_id' => 1
         ]);*/
     return view('registration.newStudentRegistration');
+   // return view('welcome');
 
 });
 
@@ -53,6 +54,9 @@ Route::delete('/logout', [\App\Http\Controllers\AuthController::class, 'logout']
     ->middleware('auth');
 
 Route::prefix('manager')->group(function () {
+    Route::get('/home',function (){
+        return view('home');
+    });
     Route::resource('communication', CommunicationController::class);
     Route::resource('course', CourseController::class);
     Route::resource('facturation', FacturationController::class);
