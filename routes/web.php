@@ -6,6 +6,7 @@ use App\Http\Controllers\FacturationController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\PlanningController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\UserController;
@@ -81,15 +82,17 @@ Route::post('/login', [\App\Http\Controllers\AuthController::class, 'doLogin']);
 Route::delete('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])
     ->name('logout')
     ->middleware('auth');
+Route::post('/manager/quizzes/results', [QuizController::class, 'result'])->name('quizzes.results');
 
 Route::prefix('manager')->name('manager.')->middleware('auth')->group(function () {
     Route::get('/home',function (){
         return view('home');
     })->name('home');
-
     Route::get('student-planning', [\App\Http\Controllers\StudentsController::class, 'planning'])
         ->name('student-planning');
     Route::resource('communication', CommunicationController::class);
+    Route::resource('quizzes', \App\Http\Controllers\QuizController::class);
+    Route::get('/play', [\App\Http\Controllers\QuizController::class,'play'])->name('quizzes.play');
     Route::resource('course', CourseController::class);
     Route::resource('facturation', FacturationController::class);
     Route::resource('note', NoteController::class);
