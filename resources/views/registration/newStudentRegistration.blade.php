@@ -19,15 +19,12 @@
 </head>
 <body>
 @extends('dashboard')
-
 @section('title', 'Inscription d\'un étudiant')
-
 @section('contents')
     <div class="flex flex-col sm:flex-row justify-between items-center">
         <h1 class="text-3xl font-bold">Inscription d'un étudiant</h1>
         <a href="{{--{{ route('students.index') }}--}}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-4 sm:mt-0">Retour</a>
     </div>
-
     <div class="mt-8">
         <!-- Navigation des onglets -->
         <div class="flex border-b border-gray-200 dark:border-gray-700">
@@ -41,14 +38,12 @@
                 Informations d'Inscription
             </button>
         </div>
-
         <form action="{{--{{ route('students.store') }}--}}" id="student-registration-form" method="POST" enctype="multipart/form-data" class="mt-6">
             @csrf
             <!-- Première partie du formulaire sur les informations personnelles -->
             <div id="personal-info" class="form-section">
                 <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6 mt-6 w-full mx-auto">
                     <h2 class="text-xl font-bold mb-8">Informations Personnelles</h2>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nom & Prénom</label>
@@ -59,7 +54,6 @@
                             <input type="email" name="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                         </div>
                     </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         <div>
                             <label for="phone" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Téléphone:</label>
@@ -70,7 +64,6 @@
                             <input type="text" name="address" id="address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                         </div>
                     </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         <div>
                             <label for="date_of_birth" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Date de Naissance</label>
@@ -94,7 +87,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Deuxième partie du formulaire sur les informations des parents -->
             <div id="parents-info" class="form-section">
                 <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6 mt-6 w-full mx-auto">

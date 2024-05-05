@@ -18,13 +18,15 @@ return new class extends Migration
             $table->string('place_of_birth')->nullable();
             $table->string('phone');
             $table->string('status')->default('active');
-            //$table->string('responsable_name')->nullable();
+
             $table->foreignId('schoolclass_id')
                 ->nullable()
                 ->constrained('school_classes')->onDelete('cascade');
             $table->string('address')->nullable();
             $table->string('gender')->nullable();
             $table->string('image')->nullable();
+            $table->string('phone_parent')->nullable();
+
             $table->string('month_paid')->nullable();
 
             $table->timestamps();

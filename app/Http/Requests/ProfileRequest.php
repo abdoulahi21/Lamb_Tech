@@ -25,6 +25,7 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'parent_name' => 'required|string|max:255',
             'birthday' => 'required|date_format:Y-m-d|nullable',
             'place_of_birth' => 'required|string|max:255|nullable',
             'phone' => 'required|string|max:255',
@@ -34,6 +35,7 @@ class ProfileRequest extends FormRequest
             'gender' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'month_paid' => 'nullable|string|max:255',
+            'phone_parent' => 'nullable|string|max:255',
         ];
     }
 }
