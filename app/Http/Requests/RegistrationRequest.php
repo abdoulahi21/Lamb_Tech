@@ -24,7 +24,7 @@ class RegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'profile_id' => 'required|exists:profiles,id',
+            'profile_id' => 'nullable|exists:profiles,id',
             'schoolclass_id' => 'required|exists:school_classes,id',
             'academic_year' => 'required|string|max:255',
             'status' => 'required|string|max:255',
