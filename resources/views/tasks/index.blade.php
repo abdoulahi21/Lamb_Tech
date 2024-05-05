@@ -72,6 +72,8 @@
                                         <div class="text-sm font-medium text-gray-900 dark:text-white">
                                             @if($task->schoolClass)
                                                 {{ $task->schoolClass->level.' '.$task->schoolClass->name }}
+                                                @else
+                                                Licence 1 GL
                                             @endif
                                         </div>
                                     </td>
