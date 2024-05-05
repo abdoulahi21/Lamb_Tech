@@ -41,7 +41,7 @@
             </div>
             <div class="mt-4">
                 <label for="profile_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Enseignant Responsable</label>
-                <select name="profile_id" id="teacher_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                <select name="profile_id" id="profile_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                     <option value="">Sélectionnez un enseignant</option>
                     @foreach($teachers as $teacher)
                         <option value="{{ $teacher->id }}" {{ old('profile_id', $courses->profile_id) == $teacher->id ? 'selected' : '' }}>{{ $teacher->name }}</option>

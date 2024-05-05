@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NotesRequest;
 use App\Models\Note;
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NoteController extends Controller
@@ -21,7 +23,7 @@ class NoteController extends Controller
     public function index()
     {
         $notes = Note::all();
-        return view('notes.index', compact('notes'));
+        return view('note.index', compact('notes'));
     }
 
     /**
@@ -29,7 +31,11 @@ class NoteController extends Controller
      */
     public function create()
     {
-        return view('notes.create');
+        //je veux recuperer les utilisateurs qui ont comme role teacher
+        $teachers = User::where('role', 'professeur')->get();
+        $students = User::where('role', 'etudiant')->get();
+        $note= new Note();
+        return view('note.create', compact('teachers', 'students', 'note'));
     }
 
     /**
@@ -40,7 +46,7 @@ class NoteController extends Controller
 
         Note::create($request->all());
 
-        return redirect()->route('notes.index')
+        return redirect()->route('manager.note.index')
             ->with('success', 'Note created successfully.');
     }
 
@@ -49,7 +55,7 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        return view('notes.show', compact('note'));
+        return view('note.show', compact('note'));
     }
 
     /**
@@ -57,7 +63,7 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        return view('notes.edit', compact('note'));
+        return view('note.edit', compact('note'));
     }
 
     /**
@@ -68,7 +74,7 @@ class NoteController extends Controller
 
         $note->update($request->all());
 
-        return redirect()->route('notes.index')
+        return redirect()->route('note.index')
             ->with('success', 'Note updated successfully.');
     }
 
@@ -79,7 +85,7 @@ class NoteController extends Controller
     {
         $note->delete();
 
-        return redirect()->route('notes.index')
+        return redirect()->route('note.index')
             ->with('success', 'Note deleted successfully.');
     }
 }
