@@ -35,14 +35,14 @@ class SchoolClassController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(SchoolClasseRequest $request)
     {
-
         SchoolClass::create($request->all());
-
-        return view('schoolclasses.index')
-            ->with('success', 'Class created successfully.');
+        return redirect()->route('manager.schoolclass.index')
+            ->with('success', 'Classe créée avec succès.');
     }
+
 
     /**
      * Display the specified resource.
