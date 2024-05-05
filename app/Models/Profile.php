@@ -15,7 +15,6 @@ class Profile extends Model
         'place_of_birth',
         'phone',
         'status',
-//       'responsable_id',
         'address',
         'gender',
         'image',
@@ -43,4 +42,10 @@ class Profile extends Model
     {
         return $this->belongsToMany(SchoolClass::class, 'registrations');
     }
+
+    public function registration() {
+        return $this->belongsToMany(SchoolClass::class,'registrations','profile_id','schoolclass_id')
+            ->withPivot('academic_year','documents','status');
+    }
+
 }
