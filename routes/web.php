@@ -61,6 +61,9 @@ Route::prefix('manager')->name('manager.')->middleware('auth')->group(function (
     Route::get('/home',function (){
         return view('home');
     })->name('home');
+
+    Route::get('student-planning', [\App\Http\Controllers\StudentsController::class, 'planning'])
+        ->name('student-planning');
     Route::resource('communication', CommunicationController::class);
     Route::resource('course', CourseController::class);
     Route::resource('facturation', FacturationController::class);
