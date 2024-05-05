@@ -28,11 +28,26 @@
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $note->id }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $note->note }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $note->course_id }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        @php
+                            $course = \App\Models\Course::find($note->course_id);
+                        @endphp
+                        {{ $course->name }}
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $note->type }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $note->appreciation }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $note->student_id }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $note->teacher_id }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        @php
+                            $student = \App\Models\Profile::find($note->student_id);
+                        @endphp
+                        {{ $student->name }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        @php
+                            $teacher = \App\Models\Profile::find($note->teacher_id);
+                        @endphp
+                        {{ $teacher->name }}
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $note->semester }}</td>
                 </tr>
             @endforeach

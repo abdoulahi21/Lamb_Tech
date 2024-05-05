@@ -10,7 +10,7 @@
     </div>
 
     <div class="mt-8">
-        <form action="{{ $note->exists ? route('manager.schoolclass.update', $note) : route('manager.schoolclass.store') }}" method="POST">
+        <form action="{{ $note->exists ? route('manager.note.update', $note) : route('manager.note.store') }}" method="POST">
             @csrf
             @if($note->exists)
                 @method('PATCH')
@@ -20,6 +20,30 @@
                 <label for="note" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Note</label>
                 <input type="number" name="note" id="note" value="{{ old('note', $note->note) }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                 @error('note')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- ajouter le select pour choisir le course_id--}}
+            <div class="mt-4">
+                <label for="course_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Cours</label>
+                <select name="course_id" id="course_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <option value="">Sélectionner le cours</option>
+                    @foreach(\App\Models\Course::all() as $course)
+                        <option value="{{ $course->id }}" {{ old('course_id', $note->course_id) == $course->id ? 'selected' : '' }}>{{ $course->name }}</option>
+                    @endforeach
+                </select>
+                @error('course_id')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
+            </div>
+
+            {{--ajouter l'appreciation--}}
+            <div>
+                <label for="appreciation" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Appréciation</label>
+                <input type="text" name="appreciation" id="appreciation" value="{{ old('appreciation', $note->appreciation) }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                @error('appreciation')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
