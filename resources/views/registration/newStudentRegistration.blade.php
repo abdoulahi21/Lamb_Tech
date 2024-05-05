@@ -66,8 +66,17 @@
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         <div>
+                            <label for="gender" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Sexe:</label>
+                            <select name="gender" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                <option value="Female">Feminin</option>
+                                <option value="Male">Masculin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                        <div>
                             <label for="date_of_birth" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Date de Naissance</label>
-                            <input type="date" name="date_of_birth" id="date_of_birth" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                            <input type="date" name="birthday" id="date_of_birth" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                         </div>
 
                         <div>
@@ -107,12 +116,9 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         <div>
                             <label for="parent_phone" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Téléphone:</label>
-                            <input type="text" name="parent_phone" id="parent_phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-456-7890" required>
+                            <input type="number" name="phone_parent" id="parent_phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-456-7890" required>
                         </div>
-                        <div>
-                            <label for="parent_address" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Adresse</label>
-                            <input type="text" name="parent_address" id="parent_address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -123,19 +129,25 @@
                     <h2 class="text-xl font-bold mb-8">Informations d'Inscription</h2>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
+                       {{-- <div>
                             <label for="profile_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Profil</label>
                             <select id="profile_id" name="profile_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                                 <option value="">Sélectionner un profil</option>
                             </select>
-                        </div>
+                        </div>--}}
 
                         <div>
                             <label for="schoolclass_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Classe</label>
-                            <select id="schoolclass_id" name="schoolclass_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                            <select id="schoolclass_id" name="school_class_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                                 <option value="">Sélectionner une classe</option>
-                                <!-- Ajoutez ici les options pour les classes -->
+                                @foreach(\App\Models\SchoolClass::all() as $classe)
+                                    <option value="{{$classe->id}}">{{$classe->level.'-'.$classe->name}}</option>
+                                @endforeach
                             </select>
+                        </div>
+                        <div>
+                            <label for="monthly_amount" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Mensualite</label>
+                            <input id="monthly_amount" name="monthly_amount" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                         </div>
                     </div>
 
@@ -166,7 +178,7 @@
         </button>
     </div>
 @endsection
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     $(document).ready(function() {
         // Fonction pour afficher/cacher les sections du formulaire
@@ -195,6 +207,24 @@
             }
         });
     });
+
+
+
+    document.getElementById('schoolclass_id').addEventListener('change', function() {
+        let schoolclassId = this.value;
+        axios.get(`/manager/registration/${schoolclassId}`)
+            .then(function(response) {
+                var schoolclassDetails = response.data;
+                // Mettre à jour le champ de mensualité avec les détails de la classe
+                document.getElementById('monthly_amount').value = schoolclassDetails.monthly_amount;
+                //console.log(data);
+            })
+            .catch(function(error) {
+                console.error('Une erreur s\'est produite lors de la récupération des détails de la classe :', error);
+            });
+    });
+
+
 </script>
 </body>
 </html>

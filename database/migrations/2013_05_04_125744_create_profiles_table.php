@@ -16,9 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->date('birthday')->nullable();
             $table->string('place_of_birth')->nullable();
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('status')->default('active');
-
             $table->foreignId('schoolclass_id')
                 ->nullable()
                 ->constrained('school_classes')->onDelete('cascade');
@@ -26,7 +25,7 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->string('image')->nullable();
             $table->string('phone_parent')->nullable();
-
+            $table->string('parent_email')->nullable();
             $table->string('month_paid')->nullable();
 
             $table->timestamps();

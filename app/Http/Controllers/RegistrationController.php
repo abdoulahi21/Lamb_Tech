@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\RegistrationRequest;
 use App\Models\Profile;
+use App\Models\Registration;
 use App\Models\SchoolClass;
 use App\Models\Student; // Ajoutez le modèle Student
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -19,119 +22,119 @@ class RegistrationController extends Controller
         return view('registration.newStudentRegistration');
     }
 
+    public function schoolclasseDetails($id)
+    {
+        //récupérer les détails de la classe en fonction de l'ID
+        $schoolclass = SchoolClass::find($id);
+        dd($schoolclass);
+        if (!$schoolclass) {
+            return response()->json(['error' => 'schoolclass not found'], 404);
+        }
+
+        return response()->json([
+            'monthly_amount' => $schoolclass->monthly_amount,
+            'registration_amount' => $schoolclass->registration_amount,
+        ]);
+
+    }
+
+
     public function create()
     {
         $profiles = Profile::all();
         $schoolClasses = SchoolClass::all();
-
         return view('registration.newStudentRegistration', compact('profiles', 'schoolClasses'));
     }
+
+
 
     public function store(RegistrationRequest $request)
     {
         $validatedData = $request->validated();
+        //dd($validatedData);
 
-        // Remplacez "Profile" par "Student"
-        $student = Profile::create([
+        $parentProfile = Profile::create([
+            'name' => $validatedData['parent_name'],
+            'parent_email' => $validatedData['parent_email'],
+            'phone_parent' => $validatedData['phone_parent'],
+        ]);
+        //dd($parentProfile);
+
+        // Créez d'abord le profil de l'étudiant
+        $studentProfile = Profile::create([
             'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
             'phone' => $validatedData['phone'],
             'address' => $validatedData['address'],
-            'date_of_birth' => $validatedData['date_of_birth'],
+            'birthday' => $validatedData['birthday'],
             'place_of_birth' => $validatedData['place_of_birth'],
-            'parent_name' => $validatedData['parent_name'],
-            'parent_email' => $validatedData['parent_email'], // Ajoutez cette ligne
-            'parent_phone' => $validatedData['parent_phone'],
-            'parent_address' => $validatedData['parent_address'],
-            'profile_id' => $validatedData['profile_id'],
-            'schoolclass_id' => $validatedData['schoolclass_id'],
-            'academic_year' => $validatedData['academic_year'],
-            'status' => $validatedData['status'],
+            'responsable_id' => $parentProfile->id,
         ]);
 
+        // Enregistrez l'image de l'étudiant, le cas échéant
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public/students');
-            $student->image_path = Storage::url($imagePath);
-            $student->save();
+            $studentProfile->image_path = Storage::url($imagePath);
+            $studentProfile->save();
         }
 
+        // Associez la classe scolaire au profil de l'étudiant
+        $schoolClass = SchoolClass::find($validatedData['school_class_id']);
+        $studentProfile->update(['schoolclass_id' => $schoolClass->id]);
+        $studentProfile->update(['month_paid' => $schoolClass->month_required]);
+
+        // Créez l'enregistrement dans la table pivot "registrations"
+        Registration::create(
+            [
+                'profile_id'=>$studentProfile->id,
+                'schoolclass_id'=>$schoolClass->id,
+                'academic_year'=>$validatedData['academic_year'],
+                'status'=>$validatedData['status'],
+            ]
+        );
+
+        // Enregistrez les documents, le cas échéant
         if ($request->hasFile('documents')) {
             foreach ($request->file('documents') as $document) {
                 $documentPath = $document->store('public/students');
-                $student->documents()->create([
+                $studentProfile->documents()->create([
                     'path' => Storage::url($documentPath),
                 ]);
             }
         }
+        // Récupérer le nom et l'année de naissance de l'étudiant
+        $name = $studentProfile->name;
+        $birthday = $studentProfile->birthday;
+
+// Récupérer uniquement l'année de naissance
+        $birthYear = date('Y', DateTime::createFromFormat('Y-m-d', $birthday)->getTimestamp());
+
+// Limiter le nom à 8 caractères si nécessaire
+        if (strlen($name) > 8) {
+            $name = substr($name, 0, 8);
+        }
+
+// Créer l'adresse e-mail en utilisant le nom et l'année de naissance
+        $email = $name . $birthYear . '@groupeit.sn';
+
+// Créer l'utilisateur
+        $student = new User();
+        $student->email = $email;
+        $student->password = Hash::make('passer@123');
+        $student->save();
+//parent
+        $parent = new User();
+        $parent->email = $parentProfile->parent_email;
+        $parent->password = Hash::make('passer@123');
+        $parent->save();
+
+
 
         return redirect()->route('manager.registration.index')->with('success', 'Étudiant inscrit avec succès.');
     }
 
-    public function show(Student $student) // Remplacez "Profile" par "Student"
-    {
-        return view('students.show', compact('student'));
-    }
 
-    public function edit(Student $student) // Remplacez "Profile" par "Student"
-    {
-        $profiles = Profile::all();
-        $schoolClasses = SchoolClass::all();
 
-        return view('students.edit', compact('student', 'profiles', 'schoolClasses'));
-    }
 
-    public function update(RegistrationRequest $request, Profile $student) // Remplacez "Profile" par "Student"
-    {
-        $validatedData = $request->validated();
 
-        $student->update([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'phone' => $validatedData['phone'],
-            'address' => $validatedData['address'],
-            'date_of_birth' => $validatedData['date_of_birth'],
-            'place_of_birth' => $validatedData['place_of_birth'],
-            'parent_name' => $validatedData['parent_name'],
-            'parent_email' => $validatedData['parent_email'], // Ajoutez cette ligne
-            'parent_phone' => $validatedData['parent_phone'],
-            'parent_address' => $validatedData['parent_address'],
-            'profile_id' => $validatedData['profile_id'],
-            'schoolclass_id' => $validatedData['schoolclass_id'],
-            'academic_year' => $validatedData['academic_year'],
-            'status' => $validatedData['status'],
-        ]);
 
-        if ($request->hasFile('image')) {
-            if ($student->image_path) {
-                Storage::delete(Str::after($student->image_path, 'storage'));
-            }
-
-            $imagePath = $request->file('image')->store('public/students');
-            $student->image_path = Storage::url($imagePath);
-            $student->save();
-        }
-
-        if ($request->hasFile('documents')) {
-            foreach ($request->file('documents') as $document) {
-                $documentPath = $document->store('public/students');
-                $student->documents()->create([
-                    'path' => Storage::url($documentPath),
-                ]);
-            }
-        }
-
-        return redirect()->route('manager.students.index')->with('success', 'Étudiant mis à jour avec succès.');
-    }
-
-    public function destroy( $student) // Remplacez "Profile" par "Student"
-    {
-        if ($student->image_path) {
-            Storage::delete(Str::after($student->image_path, 'storage'));
-        }
-
-        $student->documents()->delete();
-        $student->delete();
-
-        return redirect()->route('manager.students.index')->with('success', 'Étudiant supprimé avec succès.');
-    }
 }

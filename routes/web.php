@@ -41,6 +41,7 @@ Route::get('/', function () {
         'password' =>\Illuminate\Support\Facades\Hash::make('passer'),
         'role' => 'admin',
         'profile_id' => 1
+
         ]);*/
 
 //   Profile::create([
@@ -67,6 +68,7 @@ Route::get('/', function () {
 
 
 });
+Route::get('/manager/registration/{id}', [RegistrationController::class, 'schoolclasseDetails']);
 
 Route::post('/assigner-cours', [CourseController::class, 'assignerCours'])->name('assigner.cours');
 
