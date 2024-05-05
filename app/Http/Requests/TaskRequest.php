@@ -29,6 +29,9 @@ class TaskRequest extends FormRequest
             'completed' => 'nullable|boolean',
             'teacher_id' => 'required|exists:profiles,id',
             'schoolClass_id' => 'required|exists:school_classes,id',
+            'exo_file' => 'nullable|file',
+            'correction_file' => 'nullable|file',
+            'rendu_file' => 'nullable|file',
         ];
     }
 }

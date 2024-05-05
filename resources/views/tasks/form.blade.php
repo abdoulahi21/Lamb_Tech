@@ -13,7 +13,7 @@
     </div>
 
     <div class="mt-8">
-        <form method="POST" action="{{ route('manager.task.store') }}">
+        <form method="POST" action="{{ route('manager.task.store') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-4">
@@ -62,6 +62,12 @@
                     @endforeach
                 </select>
             </div>
+
+            <div class="mb-4">
+                <label for="file" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Fichier</label>
+                <input type="file" name="exo_file" id="exo_file" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+            </div>
+
 
             <div class="mt-8 flex justify-center">
                 <button type="submit" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">
