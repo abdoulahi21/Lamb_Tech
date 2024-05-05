@@ -40,8 +40,8 @@ Route::get('/', function () {
         'role' => 'admin',
         'profile_id' => 1
         ]);*/
-    return view('registration.newStudentRegistration');
-   // return view('welcome');
+//    return view('registration.newStudentRegistration');
+    return view('welcome');
 
 });
 
