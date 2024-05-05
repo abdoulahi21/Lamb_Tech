@@ -17,6 +17,34 @@ class CourseController extends Controller
     {
         $this->authorizeResource(Course::class, 'course');
         }
+    public function assignerCours(Request $request)
+    {
+        // Validez les données envoyées par le formulaire
+        $request->validate([
+            'event_name' => 'required|string|max:255',
+            'teacher' => 'required|exists:enseignants,id',
+            'classe' => 'required|exists:classes,id',
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => 'required|date_format:H:i|after:start_time',
+        ]);
+
+        // Créez un nouveau cours avec les données fournies
+        $cours = new Course();
+        $cours->event_name = $request->input('event_name');
+        $cours->teacher_id = $request->input('teacher');
+        $cours->classe_id = $request->input('classe');
+        $cours->start_time = $request->input('start_time');
+        $cours->end_time = $request->input('end_time');
+        // Vous pouvez ajouter d'autres attributs ici
+
+        // Sauvegardez le cours dans la base de données
+        $cours->save();
+
+        // Redirigez l'utilisateur vers une page appropriée
+        return redirect()->back()->with('success', 'Cours assigné avec succès.');
+    }
+
+
 
     /**
      * Display a listing of the resource.

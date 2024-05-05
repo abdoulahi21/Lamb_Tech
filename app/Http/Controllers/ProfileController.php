@@ -64,7 +64,7 @@ class ProfileController extends Controller
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = Hash::make(Str::random(12)); // Générer un mot de passe aléatoire
+        $user->password = Hash::make("passer"); // Générer un mot de passe aléatoire
         $user->role = $request->input('role'); // Récupérer le rôle depuis le formulaire
         $user->profile_id = $profile->id;
 

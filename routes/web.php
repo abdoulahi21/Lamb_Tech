@@ -49,6 +49,10 @@ Route::get('/', function () {
 
 });
 
+Route::post('/assigner-cours', [CourseController::class, 'assignerCours'])->name('assigner.cours');
+
+
+
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'login'])
     ->name('login')
     ->middleware('guest');
