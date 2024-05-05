@@ -130,58 +130,12 @@
                                         <li>
                                             <a href="{{route('manager.note.index') }}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Notes</a>
                                         </li>
-                                        <li>
-                                            <a href="{{--{{ route('rh.mail-alerts.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Alertes Mail</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{--{{ route('rh.talent-type.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Type de talents</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{--{{ route('rh.talent.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Talents</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{--{{ route('rh.team.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Equipes</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{--{{ route('rh.planning.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Planning</a>
-                                        </li>
 
                                     </ul>
                                 </li>
                                 {{--  Fin          --}}
                                 {{-- @endcan--}}
-                                <li>
-                                    <a href="{{--{{ route('rh.my-team') }}--}}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
-                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" height="800px" width="800px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
-                                            <g>
-                                                <g>
-                                                    <path d="m256,127.8c19.8,0 35.4-16.7 35.4-35.4 0-19.8-15.6-35.4-35.4-35.4s-35.4,15.6-35.4,35.4c2.84217e-14,19.7 15.6,35.4 35.4,35.4zm0-52.2c9.4,0 15.6,7.3 15.6,15.6 0,8.3-7.3,15.6-15.6,15.6s-15.6-6.3-15.6-15.6c0-8.3 6.2-15.6 15.6-15.6z"/>
-                                                    <path d="m112.1,325.9c-19.8,0-35.4,15.6-35.4,35.4s15.6,35.4 35.4,35.4c18.8,0 35.4-15.6 35.4-35.4s-15.6-35.4-35.4-35.4zm0,50c-8.3,0-15.6-7.3-15.6-15.6s6.3-15.6 15.6-15.6c8.3,0 15.6,7.3 15.6,15.6s-6.2,15.6-15.6,15.6z"/>
-                                                    <path d="m399.9,289.4c-33,0-62,15.4-80.4,39.5l-54.1-49.3v-57.3c51-4.8 91.7-48.6 91.7-100.7 0-56.3-44.8-101.1-101.1-101.1s-101.1,45.8-101.1,101c0,53.1 40.8,96 91.7,100.7v56.7l-54.3,49.6c-18.4-23.9-47.4-39.2-80.2-39.2-56.3,0.1-101.1,44.9-101.1,101.2s45.9,101.1 101.1,101.1 101.1-44.8 101.1-101.1c0-16.1-3.7-31.3-10.2-44.7l52.6-48.4 53.3,48.6c-6.5,13.4-10.1,28.5-10.1,44.5 0,56.3 45.9,101.1 101.1,101.1 56.3,0 101.1-44.8 101.1-101.1s-44.8-101.1-101.1-101.1zm-333.3,168.4c5-15.8 19.3-26.7 36.2-26.7h18.8c16.8,0 31.1,10.9 36.2,26.7-13,8.8-28.7,14-45.5,14-17,0-32.7-5.2-45.7-14zm106.6-13.7c-9.9-18.8-29.5-31.8-51.6-31.8h-18.8c-23,0-42.7,12.3-52.1,31.2-12.3-14.3-19.8-32.8-19.8-53.1 0-44.8 36.5-81.3 81.3-81.3 43.8,0 81.3,36.5 81.3,81.3-0.1,20.6-7.7,39.4-20.3,53.7zm82.8-241.3c-16.9,0-32.5-5.2-45.5-14 5-15.8 19.3-26.7 36.2-26.7h18.8c16.8,0 31.1,10.9 36.2,26.7-13.2,8.9-28.8,14-45.7,14zm-81.3-81.3c0-44.8 36.5-81.3 81.3-81.3s81.3,36.5 81.3,81.3c0,20.5-7.7,39.3-20.3,53.6-9.9-18.8-29.5-31.8-51.6-31.8h-18.8c-23,0-42.7,12.3-52.1,31.2-12.3-14.1-19.8-32.7-19.8-53zm179.6,336.3c5-15.8 19.3-26.7 36.2-26.7h18.8c16.8,0 31.1,10.9 36.2,26.7-13,8.8-28.7,14-45.5,14s-32.7-5.2-45.7-14zm106.6-13.7c-9.9-18.8-29.5-31.8-51.6-31.8h-18.8c-23,0-42.7,12.3-52.1,31.2-12.3-14.3-19.8-32.8-19.8-53.1 0-44.8 36.5-81.3 81.3-81.3s81.3,36.5 81.3,81.3c5.68434e-14,20.6-7.7,39.4-20.3,53.7z"/>
-                                                    <path d="m399.9,325.9c-19.8,0-35.4,15.6-35.4,35.4s15.6,35.4 35.4,35.4 35.4-15.6 35.4-35.4-15.6-35.4-35.4-35.4zm0,50c-8.3,0-15.6-7.3-15.6-15.6s6.3-15.6 15.6-15.6 15.6,7.3 15.6,15.6-6.2,15.6-15.6,15.6z"/>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        <span class="flex-1 ms-6 whitespace-nowrap">Mon Equipe</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{--{{ route('rh.my-absences') }}--}}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-
-                                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor"  xmlns="http://www.w3.org/2000/svg"
-                                             width="800px" height="800px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
-                        <path d="M21.9,37c0-2.7,0.9-5.8,2.3-8.2c1.7-3,3.6-4.2,5.1-6.4c2.5-3.7,3-9,1.4-13c-1.6-4.1-5.4-6.5-9.8-6.4
-                            s-8,2.8-9.4,6.9c-1.6,4.5-0.9,9.9,2.7,13.3c1.5,1.4,2.9,3.6,2.1,5.7c-0.7,2-3.1,2.9-4.8,3.7c-3.9,1.7-8.6,4.1-9.4,8.7
-                            C1.3,45.1,3.9,49,8,49h17c0.8,0,1.3-1,0.8-1.6C23.3,44.5,21.9,40.8,21.9,37z"/>
-                                            <path d="M46.4,28.5c-4.7-4.7-12.3-4.7-17,0c-4.7,4.7-4.7,12.3,0,17c4.7,4.7,12.3,4.7,17,0
-                        C51.1,40.8,51.1,33.2,46.4,28.5z M42.9,39.1c0.4,0.4,0.4,1.1-0.1,1.5l-1.4,1.4c-0.4,0.4-0.9,0.4-1.3-0.1L38,39.8l-2.2,2.2
-                        c-0.4,0.4-0.9,0.4-1.3-0.1L33,40.5c-0.4-0.4-0.5-0.9-0.1-1.3l2.2-2.2L33,34.8c-0.4-0.4-0.5-0.9-0.1-1.3l1.4-1.4
-                        c0.4-0.4,1.1-0.5,1.5-0.1l2.1,2.1l2.1-2.1c0.4-0.4,1.1-0.5,1.5-0.1l1.4,1.4c0.4,0.4,0.4,1.1-0.1,1.5l-2.1,2.1L42.9,39.1z"/>
-                    </svg>
-                                        <span class="flex-1 ms-6 whitespace-nowrap">Mes Absences</span>
-                                    </a>
-                                </li>
                                 <li>
                                     <a href="{{ route('manager.task.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" viewBox="0 0 48 48" version="1" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 48 48">
@@ -501,58 +455,12 @@
                     <li>
                         <a href="{{route('manager.note.index') }}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Notes</a>
                     </li>
-                    <li>
-                        <a href="{{--{{ route('rh.mail-alerts.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Alertes Mail</a>
-                    </li>
-                    <li>
-                        <a href="{{--{{ route('rh.talent-type.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Type de talents</a>
-                    </li>
-                    <li>
-                        <a href="{{--{{ route('rh.talent.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Talents</a>
-                    </li>
-                    <li>
-                        <a href="{{--{{ route('rh.team.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Equipes</a>
-                    </li>
-                    <li>
-                        <a href="{{--{{ route('rh.planning.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Planning</a>
-                    </li>
 
                 </ul>
             </li>
             {{--  Fin          --}}
            {{-- @endcan--}}
-            <li>
-                <a href="{{--{{ route('rh.my-team') }}--}}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
-                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" height="800px" width="800px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
-                        <g>
-                            <g>
-                                <path d="m256,127.8c19.8,0 35.4-16.7 35.4-35.4 0-19.8-15.6-35.4-35.4-35.4s-35.4,15.6-35.4,35.4c2.84217e-14,19.7 15.6,35.4 35.4,35.4zm0-52.2c9.4,0 15.6,7.3 15.6,15.6 0,8.3-7.3,15.6-15.6,15.6s-15.6-6.3-15.6-15.6c0-8.3 6.2-15.6 15.6-15.6z"/>
-                                <path d="m112.1,325.9c-19.8,0-35.4,15.6-35.4,35.4s15.6,35.4 35.4,35.4c18.8,0 35.4-15.6 35.4-35.4s-15.6-35.4-35.4-35.4zm0,50c-8.3,0-15.6-7.3-15.6-15.6s6.3-15.6 15.6-15.6c8.3,0 15.6,7.3 15.6,15.6s-6.2,15.6-15.6,15.6z"/>
-                                <path d="m399.9,289.4c-33,0-62,15.4-80.4,39.5l-54.1-49.3v-57.3c51-4.8 91.7-48.6 91.7-100.7 0-56.3-44.8-101.1-101.1-101.1s-101.1,45.8-101.1,101c0,53.1 40.8,96 91.7,100.7v56.7l-54.3,49.6c-18.4-23.9-47.4-39.2-80.2-39.2-56.3,0.1-101.1,44.9-101.1,101.2s45.9,101.1 101.1,101.1 101.1-44.8 101.1-101.1c0-16.1-3.7-31.3-10.2-44.7l52.6-48.4 53.3,48.6c-6.5,13.4-10.1,28.5-10.1,44.5 0,56.3 45.9,101.1 101.1,101.1 56.3,0 101.1-44.8 101.1-101.1s-44.8-101.1-101.1-101.1zm-333.3,168.4c5-15.8 19.3-26.7 36.2-26.7h18.8c16.8,0 31.1,10.9 36.2,26.7-13,8.8-28.7,14-45.5,14-17,0-32.7-5.2-45.7-14zm106.6-13.7c-9.9-18.8-29.5-31.8-51.6-31.8h-18.8c-23,0-42.7,12.3-52.1,31.2-12.3-14.3-19.8-32.8-19.8-53.1 0-44.8 36.5-81.3 81.3-81.3 43.8,0 81.3,36.5 81.3,81.3-0.1,20.6-7.7,39.4-20.3,53.7zm82.8-241.3c-16.9,0-32.5-5.2-45.5-14 5-15.8 19.3-26.7 36.2-26.7h18.8c16.8,0 31.1,10.9 36.2,26.7-13.2,8.9-28.8,14-45.7,14zm-81.3-81.3c0-44.8 36.5-81.3 81.3-81.3s81.3,36.5 81.3,81.3c0,20.5-7.7,39.3-20.3,53.6-9.9-18.8-29.5-31.8-51.6-31.8h-18.8c-23,0-42.7,12.3-52.1,31.2-12.3-14.1-19.8-32.7-19.8-53zm179.6,336.3c5-15.8 19.3-26.7 36.2-26.7h18.8c16.8,0 31.1,10.9 36.2,26.7-13,8.8-28.7,14-45.5,14s-32.7-5.2-45.7-14zm106.6-13.7c-9.9-18.8-29.5-31.8-51.6-31.8h-18.8c-23,0-42.7,12.3-52.1,31.2-12.3-14.3-19.8-32.8-19.8-53.1 0-44.8 36.5-81.3 81.3-81.3s81.3,36.5 81.3,81.3c5.68434e-14,20.6-7.7,39.4-20.3,53.7z"/>
-                                <path d="m399.9,325.9c-19.8,0-35.4,15.6-35.4,35.4s15.6,35.4 35.4,35.4 35.4-15.6 35.4-35.4-15.6-35.4-35.4-35.4zm0,50c-8.3,0-15.6-7.3-15.6-15.6s6.3-15.6 15.6-15.6 15.6,7.3 15.6,15.6-6.2,15.6-15.6,15.6z"/>
-                            </g>
-                        </g>
-                    </svg>
-                    <span class="flex-1 ms-6 whitespace-nowrap">Mon Equipe</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{--{{ route('rh.my-absences') }}--}}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor"  xmlns="http://www.w3.org/2000/svg"
-                         width="800px" height="800px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
-                        <path d="M21.9,37c0-2.7,0.9-5.8,2.3-8.2c1.7-3,3.6-4.2,5.1-6.4c2.5-3.7,3-9,1.4-13c-1.6-4.1-5.4-6.5-9.8-6.4
-                            s-8,2.8-9.4,6.9c-1.6,4.5-0.9,9.9,2.7,13.3c1.5,1.4,2.9,3.6,2.1,5.7c-0.7,2-3.1,2.9-4.8,3.7c-3.9,1.7-8.6,4.1-9.4,8.7
-                            C1.3,45.1,3.9,49,8,49h17c0.8,0,1.3-1,0.8-1.6C23.3,44.5,21.9,40.8,21.9,37z"/>
-                        <path d="M46.4,28.5c-4.7-4.7-12.3-4.7-17,0c-4.7,4.7-4.7,12.3,0,17c4.7,4.7,12.3,4.7,17,0
-                        C51.1,40.8,51.1,33.2,46.4,28.5z M42.9,39.1c0.4,0.4,0.4,1.1-0.1,1.5l-1.4,1.4c-0.4,0.4-0.9,0.4-1.3-0.1L38,39.8l-2.2,2.2
-                        c-0.4,0.4-0.9,0.4-1.3-0.1L33,40.5c-0.4-0.4-0.5-0.9-0.1-1.3l2.2-2.2L33,34.8c-0.4-0.4-0.5-0.9-0.1-1.3l1.4-1.4
-                        c0.4-0.4,1.1-0.5,1.5-0.1l2.1,2.1l2.1-2.1c0.4-0.4,1.1-0.5,1.5-0.1l1.4,1.4c0.4,0.4,0.4,1.1-0.1,1.5l-2.1,2.1L42.9,39.1z"/>
-                    </svg>
-                    <span class="flex-1 ms-6 whitespace-nowrap">Mes Absences</span>
-                </a>
-            </li>
             <li>
                 <a href="{{ route('manager.task.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" viewBox="0 0 48 48" version="1" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 48 48">
