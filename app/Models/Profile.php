@@ -24,10 +24,18 @@ class Profile extends Model
         'month_paid',
     ];
 
+    public function user()
+    {
+        // le role se trouve dans la table users qui a l'id de staff
+        return $this->hasOne(User::class);
+    }
+
     public function responsable()
     {
         return $this->belongsTo(Profile::class, 'responsable_id');
     }
+
+
 
     public function taughtClasses()
     {

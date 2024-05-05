@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
   /* Profile::create([
         'name' => 'John Doe',
         'birthday' => '1990-01-01',
@@ -43,12 +44,35 @@ Route::get('/', function () {
 
         ]);*/
 
+//   Profile::create([
+//        'name' => 'John Doe',
+//        'birthday' => '1990-01-01',
+//        'place_of_birth' => 'New York',
+//        'phone' => '1234567890',
+//        'status' => 'active',
+//        'address' => '123 Main St',
+//        'genre'  => 'Masculin'
+//    ]);
+//    User::create([
+//        'name' => 'admin',
+//        'email' => 'admin@gmail.com',
+//        'password' =>\Illuminate\Support\Facades\Hash::make('passer'),
+//        'role' => 'admin',
+//        'profile_id' => 1
+//        ]);
+
+
+
 //    return view('registration.newStudentRegistration');
     return view('welcome');
 
 
 });
 Route::get('/manager/registration/{id}', [RegistrationController::class, 'schoolclasseDetails']);
+
+Route::post('/assigner-cours', [CourseController::class, 'assignerCours'])->name('assigner.cours');
+
+
 
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'login'])
     ->name('login')
@@ -62,6 +86,9 @@ Route::prefix('manager')->name('manager.')->middleware('auth')->group(function (
     Route::get('/home',function (){
         return view('home');
     })->name('home');
+
+    Route::get('student-planning', [\App\Http\Controllers\StudentsController::class, 'planning'])
+        ->name('student-planning');
     Route::resource('communication', CommunicationController::class);
     Route::resource('course', CourseController::class);
     Route::resource('facturation', FacturationController::class);
