@@ -53,10 +53,10 @@ Route::delete('/logout', [\App\Http\Controllers\AuthController::class, 'logout']
     ->name('logout')
     ->middleware('auth');
 
-Route::prefix('manager')->group(function () {
+Route::prefix('manager')->name('manager.')->middleware('auth')->group(function () {
     Route::get('/home',function (){
         return view('home');
-    });
+    })->name('home');
     Route::resource('communication', CommunicationController::class);
     Route::resource('course', CourseController::class);
     Route::resource('facturation', FacturationController::class);
