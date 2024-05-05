@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    /*Profile::create([
+   /* Profile::create([
         'name' => 'John Doe',
         'birthday' => '1990-01-01',
         'place_of_birth' => 'New York',
@@ -40,7 +40,7 @@ Route::get('/', function () {
         'role' => 'admin',
         'profile_id' => 1
         ]);*/
-    return view('registration.newStudentRegistration');
+    return view('Home');
 
 });
 
