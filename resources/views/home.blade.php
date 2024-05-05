@@ -12,15 +12,18 @@
                     </svg>
                     {{--                </div>--}}
                 </div>
-                <div class="flex-1">
-                    <h5 class="font-bold text-2xl">
-                        {{ /*$completedTeamPlannings*/ 5 }}
-                    </h5>
-                    <h5 class="font-bold text-lg">
-                        Tache d'équipe completée
-                    </h5>
-                </div>
-            </div>
+                    <div class="flex-1">
+                        <h5 class="font-bold text-2xl">
+                            {{ /*$totalStudents*/$students->count() }}
+                            @if(auth()->user()=='admin')
+
+                            @endif
+                        </h5>
+                            <h5 class="font-bold text-lg">
+                                Nombre d'étudiants
+                            </h5>
+                    </div>
+               </div>
         </div>
         <div class="bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br shadow-2xl rounded-xl p-4">
             <div class="flex items center">
@@ -41,10 +44,13 @@
                 </div>
                 <div class="flex-1">
                     <h5 class="font-bold text-2xl">
-                        {{ /*$approvedAbsences*/4 }}
+                        {{ /*$approvedAbsences*/$teachers->count() }}
+                        @if(auth()->user()=='admin')
+
+                        @endif
                     </h5>
                     <h5 class="font-bold text-lg">
-                        Nombre d'absence approuvée
+                        Total professeurs
                     </h5>
                 </div>
             </div>
@@ -60,10 +66,13 @@
                 </div>
                 <div class="flex-1">
                     <h5 class="font-bold text-2xl">
-                        {{ /*$completedPersonalPlannings*/ 7 }}
+                        {{ /*$completedPersonalPlannings*/ $classes->count()}}
+                        @if(auth()->user()=='admin')
+
+                        @endif
                     </h5>
                     <h5 class="font-bold text-lg">
-                        Tache personnel completée
+                       Total classes
                     </h5>
                 </div>
             </div>
@@ -79,10 +88,13 @@
                 </div>
                 <div class="flex-1">
                     <h5 class="font-bold text-2xl">
-                        {{ /*$incompletedPersonalPlannings*/ 7 }}
+                        {{ /*$incompletedPersonalPlannings*/ $user->count() }}
+                        @if(auth()->user()=='admin')
+
+                        @endif
                     </h5>
                     <h5 class="font-bold text-lg">
-                        Tache personnel incompletée
+                        Total Utilisateurs
                     </h5>
                 </div>
             </div>
@@ -115,6 +127,9 @@
                         </div>
                     </h5>
                     <p class="text-gray-900 dark:text-white text-2xl leading-none font-bold">{{ /*$completedPersonalPlannings*/8 }}</p>
+                    @if(auth()->user()=='admin')
+
+                    @endif
                 </div>
                 <div>
                     <h5 class="inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2">Incomplétée
@@ -135,6 +150,9 @@
                         </div>
                     </h5>
                     <p class="text-gray-900 dark:text-white text-2xl leading-none font-bold">{{ /*$incompletedPersonalPlannings*/ 6 }}</p>
+                    @if(auth()->user()=='admin')
+
+                    @endif
                 </div>
             </div>
             <div>

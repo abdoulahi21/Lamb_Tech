@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-   /*Profile::create([
+  /*Profile::create([
         'name' => 'John Doe',
         'birthday' => '1990-01-01',
         'place_of_birth' => 'New York',
@@ -71,6 +71,7 @@ Route::get('/', function () {
 Route::get('/manager/registration/{id}', [RegistrationController::class, 'schoolclasseDetails']);
 
 Route::post('/assigner-cours', [CourseController::class, 'assignerCours'])->name('assigner.cours');
+// Route pour afficher le formulaire de création d'un planning
 
 
 
@@ -83,9 +84,11 @@ Route::delete('/logout', [\App\Http\Controllers\AuthController::class, 'logout']
     ->middleware('auth');
 
 Route::prefix('manager')->name('manager.')->middleware('auth')->group(function () {
-    Route::get('/home',function (){
+   /* Route::get('/home',function (){
         return view('home');
-    })->name('home');
+    })->name('home');*/
+    Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])
+        ->name('home');
 
     Route::get('student-planning', [\App\Http\Controllers\StudentsController::class, 'planning'])
         ->name('student-planning');
@@ -100,3 +103,13 @@ Route::prefix('manager')->name('manager.')->middleware('auth')->group(function (
     Route::resource('user', UserController::class);
     Route::resource('task', \App\Http\Controllers\TaskController::class);
 });
+
+
+
+Route::get('/calendar', function () {
+
+    return view('students.student-planning');
+
+
+})->name('plannings.index');
+

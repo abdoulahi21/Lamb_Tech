@@ -32,7 +32,8 @@ class SchoolClass extends Model
 
     public function students()
     {
-        return $this->belongsToMany(ProfilerListener::class, 'registrations');
+        return $this->hasMany(Profile::class);
     }
+
 
 }
