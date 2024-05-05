@@ -15,6 +15,7 @@ class Planning extends Model
         'end_time',
         'schoolclass_id',
         'course_id',
+        'teacher_id',
     ];
 
     public function schoolClass()

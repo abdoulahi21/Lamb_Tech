@@ -69,6 +69,7 @@ Route::get('/', function () {
 });
 
 Route::post('/assigner-cours', [CourseController::class, 'assignerCours'])->name('assigner.cours');
+// Route pour afficher le formulaire de création d'un planning
 
 
 
@@ -97,3 +98,13 @@ Route::prefix('manager')->name('manager.')->middleware('auth')->group(function (
     Route::resource('registration', RegistrationController::class);
     Route::resource('user', UserController::class);
 });
+
+
+
+Route::get('/calendar', function () {
+
+    return view('students.student-planning');
+
+
+})->name('plannings.index');
+
