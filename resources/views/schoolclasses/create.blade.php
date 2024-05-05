@@ -10,7 +10,7 @@
     </div>
 
     <div class="mt-8">
-        <form action="{{ $schoolClass->exists ? route('schoolclass.update', $schoolClass) : route('schoolclass.store') }}" method="POST">
+        <form action="{{ $schoolClass->exists ? route('manager.schoolclass.update', $schoolClass) : route('schoolclass.store') }}" method="POST">
             @csrf
             @if($schoolClass->exists)
                 @method('PATCH')
