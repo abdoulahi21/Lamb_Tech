@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    Profile::create([
+   /* Profile::create([
         'name' => 'John Doe',
         'birthday' => '1990-01-01',
         'place_of_birth' => 'New York',
@@ -41,7 +41,10 @@ Route::get('/', function () {
         'role' => 'admin',
         'profile_id' => 1
         ]);
+        ]);*/
+
     return view('registration.newStudentRegistration');
+   // return view('welcome');
 
 });
 
@@ -53,7 +56,10 @@ Route::delete('/logout', [\App\Http\Controllers\AuthController::class, 'logout']
     ->name('logout')
     ->middleware('auth');
 
-Route::prefix('manager')->group(function () {
+Route::prefix('manager')->name('manager.')->middleware('auth')->group(function () {
+    Route::get('/home',function (){
+        return view('home');
+    })->name('home');
     Route::resource('communication', CommunicationController::class);
     Route::resource('course', CourseController::class);
     Route::resource('facturation', FacturationController::class);
