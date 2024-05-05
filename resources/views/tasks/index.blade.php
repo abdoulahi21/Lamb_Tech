@@ -1,12 +1,12 @@
 @extends('dashboard')
 
-@section('title', 'Classes')
+@section('title', 'Tasks')
 
 @section('contents')
 
     <div class="flex justify-between">
-        <h1 class="text-3xl font-bold">Classes</h1>
-        <a href="{{ route('manager.schoolclass.create') }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter une classe</a>
+        <h1 class="text-3xl font-bold">Tasks</h1>
+        <a href="{{ route('manager.task.create') }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Déléguer tache</a>
     </div>
 
     <div class="flex flex-col mt-8">
@@ -17,19 +17,22 @@
                         <thead class="bg-gray-50 dark:bg-gray-800">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Nom
+                                Nom de la tâche
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Niveau
+                                Description de la tâche
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Montant mensuel
+                                Date d'échéance
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Montant d'inscription
+                                Statut de la tâche
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Mois requis
+                                Professeur
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
+                                Classe
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
                                 Actions
@@ -37,36 +40,41 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                        @if($classes->count() > 0)
-                            @foreach($classes as $class)
+                        @if($tasks->count() > 0)
+                            @foreach($tasks as $task)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                            {{ $class->name }}
+                                            {{ $task->name }}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                            {{ $class->level }}
+                                            {{ $task->description }}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                            {{ $class->monthly_amount }}
+                                            {{ $task->due_date }}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                            {{ $class->registration_amount }}
+                                            {{ $task->status }}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                            {{ $class->month_required }}
+                                            {{ $task->teacher_name }}
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900 dark:text-white">
+                                            {{ $task->schoolClass->level.' '.$task->schoolClass->name }}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <a href="{{ route('manager.schoolclass.show', $class) }}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+                                        <a href="{{ route('manager.task.edit', $task) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                     </td>
                                 </tr>
                             @endforeach

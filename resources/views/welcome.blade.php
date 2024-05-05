@@ -143,7 +143,7 @@
                     <figcaption class="flex items-center justify-center ">
                         <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture">
                         <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                            <div>Bonnie Green</div>
+                            <div>Mouhamed Lamine Niang</div>
                             <div class="text-sm text-gray-500 dark:text-gray-400 ">Developer at Open AI</div>
                         </div>
                     </figcaption>
@@ -156,7 +156,7 @@
                     <figcaption class="flex items-center justify-center ">
                         <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture">
                         <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                            <div>Roberta Casas</div>
+                            <div>Pape Birame Sembene</div>
                             <div class="text-sm text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div>
                         </div>
                     </figcaption>
@@ -169,7 +169,7 @@
                     <figcaption class="flex items-center justify-center ">
                         <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture">
                         <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                            <div>Jese Leos</div>
+                            <div>Diariatou Diamé</div>
                             <div class="text-sm text-gray-500 dark:text-gray-400">Software Engineer at Facebook</div>
                         </div>
                     </figcaption>
@@ -182,8 +182,8 @@
                     <figcaption class="flex items-center justify-center ">
                         <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture">
                         <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                            <div>Joseph McFall</div>
-                            <div class="text-sm text-gray-500 dark:text-gray-400">CTO at Google</div>
+                            <div>Abdou Lahi Diallo</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Developpeur fullstack java/react</div>
                         </div>
                     </figcaption>
                 </figure>

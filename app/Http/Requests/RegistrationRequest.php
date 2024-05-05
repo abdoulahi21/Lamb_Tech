@@ -24,8 +24,20 @@ class RegistrationRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required|string|max:255',
+            'parent_name' => 'required|string|max:255',
+            'birthday' => 'required|date_format:Y-m-d',
+            'place_of_birth' => 'required|string|max:255',
+            'phone' => 'nullable|string|max:255',
+            'responsable_id' => 'nullable|exists:profiles,id',
+            'address' => 'nullable|string|max:255',
+            'gender' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'month_paid' => 'nullable|string|max:255',
+            'phone_parent' => 'nullable|string|max:255',
+            'parent_email' => 'nullable|string|max:255',
             'profile_id' => 'nullable|exists:profiles,id',
-            'schoolclass_id' => 'required|exists:school_classes,id',
+            'school_class_id' => 'required|exists:school_classes,id',
             'academic_year' => 'required|string|max:255',
             'status' => 'required|string|max:255',
             'documents' => 'nullable|array',

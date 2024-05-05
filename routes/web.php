@@ -41,6 +41,7 @@ Route::get('/', function () {
         'password' =>\Illuminate\Support\Facades\Hash::make('passer'),
         'role' => 'admin',
         'profile_id' => 1
+
         ]);*/
 
 //   Profile::create([
@@ -67,6 +68,7 @@ Route::get('/', function () {
 
 
 });
+Route::get('/manager/registration/{id}', [RegistrationController::class, 'schoolclasseDetails']);
 
 Route::post('/assigner-cours', [CourseController::class, 'assignerCours'])->name('assigner.cours');
 // Route pour afficher le formulaire de création d'un planning
@@ -82,9 +84,11 @@ Route::delete('/logout', [\App\Http\Controllers\AuthController::class, 'logout']
     ->middleware('auth');
 
 Route::prefix('manager')->name('manager.')->middleware('auth')->group(function () {
-    Route::get('/home',function (){
+   /* Route::get('/home',function (){
         return view('home');
-    })->name('home');
+    })->name('home');*/
+    Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])
+        ->name('home');
 
     Route::get('student-planning', [\App\Http\Controllers\StudentsController::class, 'planning'])
         ->name('student-planning');
@@ -97,6 +101,7 @@ Route::prefix('manager')->name('manager.')->middleware('auth')->group(function (
     Route::resource('planning', PlanningController::class);
     Route::resource('registration', RegistrationController::class);
     Route::resource('user', UserController::class);
+    Route::resource('task', \App\Http\Controllers\TaskController::class);
 });
 
 
