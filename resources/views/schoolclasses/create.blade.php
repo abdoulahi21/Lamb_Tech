@@ -38,8 +38,6 @@
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
-
-
             <div class="mt-4">
                 <label for="monthly_amount" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Montant mensuel</label>
                 <input type="text" name="monthly_amount" id="monthly_amount" value="{{ old('monthly_amount', $schoolClass->monthly_amount) }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
