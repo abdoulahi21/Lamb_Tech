@@ -11,11 +11,9 @@ class TaskPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): Response
+    public function viewAny(User $user): bool
     {
-        return $user->role === 'admin'
-            ? Response::allow()
-            : Response::deny('You are not authorized to view tasks.');
+        return true;
     }
 
     /**

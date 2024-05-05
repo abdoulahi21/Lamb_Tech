@@ -13,7 +13,7 @@
     </div>
 
     <div class="mt-8">
-        <form method="POST" action="{{--{{ route('tasks.store') }}--}}">
+        <form method="POST" action="{{ route('manager.task.store') }}">
             @csrf
 
             <div class="mb-4">
