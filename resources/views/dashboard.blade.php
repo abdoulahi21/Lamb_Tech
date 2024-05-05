@@ -77,7 +77,7 @@
                                             <path d="M12 18.4999C11.74 18.4999 11.48 18.3899 11.29 18.2099C11.11 18.0199 11 17.7599 11 17.4999C11 17.2399 11.11 16.98 11.29 16.79C11.66 16.42 12.34 16.42 12.71 16.79C12.89 16.98 13 17.2399 13 17.4999C13 17.7599 12.89 18.0199 12.71 18.2099C12.52 18.3899 12.26 18.4999 12 18.4999Z" fill="#292D32"/>
                                             <path d="M15.5 18.4999C15.24 18.4999 14.98 18.3899 14.79 18.2099C14.61 18.0199 14.5 17.7599 14.5 17.4999C14.5 17.2399 14.61 16.98 14.79 16.79C15.16 16.42 15.84 16.42 16.21 16.79C16.39 16.98 16.5 17.2399 16.5 17.4999C16.5 17.7599 16.39 18.0199 16.21 18.2099C16.02 18.3899 15.76 18.4999 15.5 18.4999Z" fill="#292D32"/>
                                         </svg>
-                                        <span class="flex-1 ms-6 whitespace-nowrap">Planning d'Equipe</span>
+                                        <span class="flex-1 ms-6 whitespace-nowrap">Emploi du Temps</span>
                                         {{--                    <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>--}}
                                     </a>
                                 </li>
@@ -111,10 +111,13 @@
                                     </button>
                                     <ul id="dropdown-crud" class="space-y-2 py-2 hidden ">
                                         <li>
-                                            <a href="{{--{{ route('rh.staff.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700">Employées</a>
+                                            <a href="{{ route('schoolclass.index') }}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 bg-gray-100 dark:bg-gray-700">
+                                                Classes
+                                            </a>
+
                                         </li>
                                         <li>
-                                            <a href="{{--{{ route('rh.absences.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Absences</a>
+                                            <a href="{{--{{ route('rh.absences.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Etudiants</a>
                                         </li>
                                         <li>
                                             <a href="{{--{{ route('rh.contracts.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Contrats</a>
@@ -453,7 +456,7 @@
                         <path d="M12 18.4999C11.74 18.4999 11.48 18.3899 11.29 18.2099C11.11 18.0199 11 17.7599 11 17.4999C11 17.2399 11.11 16.98 11.29 16.79C11.66 16.42 12.34 16.42 12.71 16.79C12.89 16.98 13 17.2399 13 17.4999C13 17.7599 12.89 18.0199 12.71 18.2099C12.52 18.3899 12.26 18.4999 12 18.4999Z" fill="#292D32"/>
                         <path d="M15.5 18.4999C15.24 18.4999 14.98 18.3899 14.79 18.2099C14.61 18.0199 14.5 17.7599 14.5 17.4999C14.5 17.2399 14.61 16.98 14.79 16.79C15.16 16.42 15.84 16.42 16.21 16.79C16.39 16.98 16.5 17.2399 16.5 17.4999C16.5 17.7599 16.39 18.0199 16.21 18.2099C16.02 18.3899 15.76 18.4999 15.5 18.4999Z" fill="#292D32"/>
                     </svg>
-                    <span class="flex-1 ms-6 whitespace-nowrap">Planning d'Equipe</span>
+                    <span class="flex-1 ms-6 whitespace-nowrap">Emploi du Temps</span>
 {{--                    <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>--}}
                 </a>
             </li>
@@ -487,10 +490,12 @@
                 </button>
                 <ul id="dropdown-crud2" class="space-y-2 py-2 hidden ">
                     <li>
-                        <a href="{{--{{ route('rh.staff.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700">Employées</a>
+                        <a href="{{ route('schoolclass.index') }}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 bg-gray-100 dark:bg-gray-700">
+                            Classes
+                        </a>
                     </li>
                     <li>
-                        <a href="{{--{{ route('rh.absences.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Absences</a>
+                        <a href="{{--{{ route('rh.absences.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Inscriptions</a>
                     </li>
                     <li>
                         <a href="{{--{{ route('rh.contracts.index') }}--}}" class="bg-white text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Contrats</a>
