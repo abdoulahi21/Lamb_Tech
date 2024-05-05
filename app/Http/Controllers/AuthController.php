@@ -19,7 +19,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect()->route('rh.home');
+            return redirect()->route('/');
         }
         return back()->withErrors([
             'email' => 'Identifiants incorrect',
