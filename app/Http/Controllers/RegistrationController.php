@@ -119,6 +119,8 @@ class RegistrationController extends Controller
 
 // Créer l'utilisateur
         $student = new User();
+        $student->profile_id = $studentProfile->id;
+        $student->name = $studentProfile->name;
         $student->email = $email;
         $student->password = Hash::make('passer');
         $student->role = 'student';
@@ -128,6 +130,8 @@ class RegistrationController extends Controller
         $parent->email = $parentProfile->parent_email;
         $parent->password = Hash::make('passer');
         $parent->role = 'parent';
+        $parent->profile_id = $parentProfile->id;
+        $parent->name = $parentProfile->name;
         $parent->save();
 
 

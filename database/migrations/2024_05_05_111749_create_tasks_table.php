@@ -21,6 +21,9 @@ return new class extends Migration
             $table->boolean('completed')->default(false)->nullable();
             $table->foreignId('teacher_id')->constrained('profiles')->onDelete('cascade');
             $table->foreignId('schoolClass_id')->constrained('school_classes')->onDelete('cascade');
+            $table->string('exo_file')->nullable();
+            $table->string('correction_file')->nullable();
+            $table->string('rendu_file')->nullable();
 
         });
     }

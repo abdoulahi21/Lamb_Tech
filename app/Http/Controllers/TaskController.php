@@ -2,17 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
 use App\Models\Profile;
 use App\Models\SchoolClass;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TaskController extends Controller
 {
     public function __construct()
     {
         $this->authorizeResource(Task::class, 'task');
+    }
+    private function extractData (Task $task, TaskRequest $request) {
+        $data = $request->validated();
+        $exoFile = $request->validated('exo_file');
+        if ($exoFile === null || $exoFile->getError()) {
+            $data['exo_file'] = $task->exo_file;
+            return $data;
+        }
+        if ($task->exo_file !== null) {
+            Storage::disk('public')->delete($task->exo_file);
+        }
+        $data['exo_file'] = $exoFile->store('users', 'public');
+        return $data;
     }
 
     public function index()
@@ -40,9 +55,10 @@ class TaskController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
-        Task::create($request->all());
+        $data = $this->extractData(new Task(), $request);
+        Task::create($data);
 
         return redirect()->route('tasks.index')
             ->with('success', 'Task created successfully.');
@@ -70,7 +86,7 @@ class TaskController extends Controller
     {
         $task->delete();
 
-        return redirect()->route('tasks.index')
+        return redirect()->route('manager.task.index')
             ->with('success', 'Task deleted successfully');
     }
 }
