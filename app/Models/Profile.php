@@ -40,4 +40,10 @@ class Profile extends Model
             ->withPivot('academic_year','documents','status');
     }
 
+    public function allTeachers()
+    {
+        // les roles se trouvent dans la table users et la table user a une la cle etrangere profile_id qui reference la table profiles
+        return $this->hasMany(User::class, 'profile_id')->where('role', 'professeur');
+    }
+
 }

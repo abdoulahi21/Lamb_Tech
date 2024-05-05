@@ -73,4 +73,5 @@ Route::prefix('manager')->name('manager.')->middleware('auth')->group(function (
     Route::resource('planning', PlanningController::class);
     Route::resource('registration', RegistrationController::class);
     Route::resource('user', UserController::class);
+    Route::resource('task', \App\Http\Controllers\TaskController::class);
 });
