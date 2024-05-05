@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SchoolClasseRequest;
 use App\Models\Profile;
 use App\Models\SchoolClass;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SchoolClassController extends Controller
@@ -27,7 +28,7 @@ class SchoolClassController extends Controller
      */
     public function create()
     {
-        $teachers = Profile::all();
+        $teachers = User::where('role', 'professeur')->get();
         $schoolClass = new SchoolClass();
         return view('schoolclasses.create',['schoolClass' => $schoolClass],['teachers' => $teachers]);
     }
@@ -49,7 +50,9 @@ class SchoolClassController extends Controller
      */
     public function show(SchoolClass $sc)
     {
-        return view('classes.show', ['class' => $sc]);
+        //je récupère les élèves de la classe
+        $students = $sc->students()->get();
+        return view('schoolclass.show', ['class' => $sc], ['students' => $students]);
     }
 
     /**
