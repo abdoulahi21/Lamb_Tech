@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CoursesRequest;
 
 use App\Models\Course;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -24,7 +25,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('courses.index', compact('courses'));
+        return view('course.index', compact('courses'));
     }
 
     /**
@@ -32,7 +33,10 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('courses.create');
+        $teachers=Profile::all();
+        $courses=new Course();
+        return view('course.create',
+        compact('teachers','courses'));
     }
 
     /**
@@ -42,7 +46,7 @@ class CourseController extends Controller
     {
         Course::create($request->all());
 
-        return redirect()->route('courses.index')
+        return redirect()->route('manager.course.index')
             ->with('success', 'Course created successfully.');
     }
 
@@ -51,7 +55,7 @@ class CourseController extends Controller
      */
     public function show(Course $c)
     {
-        return view('courses.show', compact('c'));
+        return view('course.show', compact('c'));
     }
 
     /**
@@ -59,7 +63,7 @@ class CourseController extends Controller
      */
     public function edit(Course $c)
     {
-        return view('courses.edit', compact('c'));
+        return view('course.edit', compact('c'));
     }
 
     /**
@@ -69,7 +73,7 @@ class CourseController extends Controller
     {
         $c->update($request->all());
 
-        return redirect()->route('courses.index')
+        return redirect()->route('course.index')
             ->with('success', 'Course updated successfully.');
     }
 
@@ -80,7 +84,7 @@ class CourseController extends Controller
     {
         $c->delete();
 
-        return redirect()->route('courses.index')
+        return redirect()->route('course.index')
             ->with('success', 'Course deleted successfully.');
     }
 }
