@@ -146,10 +146,10 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div>
+                        {{--<div>
                             <label for="monthly_amount" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Mensualite</label>
                             <input id="monthly_amount" value="" name="monthly_amount" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
-                        </div>
+                        </div>--}}
                     </div>
 
                     <div class="mt-4">

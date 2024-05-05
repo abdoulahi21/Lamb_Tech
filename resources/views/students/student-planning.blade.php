@@ -7,9 +7,9 @@
     <div class="flex justify-between mb-5">
 {{--        <h1 class="text-3xl font-bold">Planning de {{ $team->name }}</h1>--}}
 {{--        @if(auth()->user()->staff_id === $team->supervisor_id)--}}
-        {{--<button onclick="window.location='{{ route('manager.planning.create') }}'" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+        <button onclick="window.location='{{ route('manager.planning.create') }}'" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
             Ajouter un événement
-        </button>--}}
+        </button>
 {{--        @endif--}}
         </div>
     <div id='teamCalendar'></div>
