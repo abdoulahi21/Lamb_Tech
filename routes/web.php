@@ -71,6 +71,7 @@ Route::get('/', function () {
 Route::get('/manager/registration/{id}', [RegistrationController::class, 'schoolclasseDetails']);
 
 Route::post('/assigner-cours', [CourseController::class, 'assignerCours'])->name('assigner.cours');
+// Route pour afficher le formulaire de création d'un planning
 
 
 
@@ -102,3 +103,13 @@ Route::prefix('manager')->name('manager.')->middleware('auth')->group(function (
     Route::resource('user', UserController::class);
     Route::resource('task', \App\Http\Controllers\TaskController::class);
 });
+
+
+
+Route::get('/calendar', function () {
+
+    return view('students.student-planning');
+
+
+})->name('plannings.index');
+
