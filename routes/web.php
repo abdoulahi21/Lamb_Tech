@@ -32,6 +32,7 @@ Route::get('/', function () {
         'phone' => '1234567890',
         'status' => 'active',
         'address' => '123 Main St',
+        'genre'  => 'Masculin'
     ]);
     User::create([
         'name' => 'admin',
@@ -39,6 +40,7 @@ Route::get('/', function () {
         'password' =>\Illuminate\Support\Facades\Hash::make('passer'),
         'role' => 'admin',
         'profile_id' => 1
+        ]);
         ]);*/
 
     return view('registration.newStudentRegistration');

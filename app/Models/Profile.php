@@ -15,7 +15,7 @@ class Profile extends Model
         'place_of_birth',
         'phone',
         'status',
-        'responsable_id',
+//       'responsable_id',
         'address',
         'gender',
         'image',
