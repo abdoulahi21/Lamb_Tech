@@ -41,6 +41,7 @@ Route::get('/', function () {
         'password' =>\Illuminate\Support\Facades\Hash::make('passer'),
         'role' => 'admin',
         'profile_id' => 1
+
         ]);*/
 
 //   Profile::create([
@@ -67,6 +68,11 @@ Route::get('/', function () {
 
 
 });
+Route::get('/manager/registration/{id}', [RegistrationController::class, 'schoolclasseDetails']);
+
+Route::post('/assigner-cours', [CourseController::class, 'assignerCours'])->name('assigner.cours');
+
+
 
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'login'])
     ->name('login')
@@ -94,4 +100,5 @@ Route::prefix('manager')->name('manager.')->middleware('auth')->group(function (
     Route::resource('planning', PlanningController::class);
     Route::resource('registration', RegistrationController::class);
     Route::resource('user', UserController::class);
+    Route::resource('task', \App\Http\Controllers\TaskController::class);
 });

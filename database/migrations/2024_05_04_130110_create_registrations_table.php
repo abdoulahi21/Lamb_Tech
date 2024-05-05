@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('schoolclass_id')->constrained('school_classes')->onDelete('cascade');
             $table->string('academic_year');
             $table->string('status');
-            $table->string('documents');
+            $table->string('documents')->nullable();
             $table->timestamps();
         });
     }
