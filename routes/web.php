@@ -47,9 +47,6 @@ Route::get('/', function () {
     return view('welcome');
 
 
-    return view('registration.newStudentRegistration');
-   // return view('welcome');
-
 });
 
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'login'])
