@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\SchoolClass;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,8 +30,14 @@ class TaskController extends Controller
                 'name' => $teacher->profile->name,
             ];
         });
+        $schoolClasses = SchoolClass::all();
 //        dd($teachers);
-        return view('tasks.form');
+        return view('tasks.form',
+        [
+            'teachers' => $teachers,
+            'schoolClasses' => $schoolClasses
+
+        ]);
     }
 
     public function store(Request $request)

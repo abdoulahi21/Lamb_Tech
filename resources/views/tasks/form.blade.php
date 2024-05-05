@@ -1,8 +1,12 @@
+@php
+    $professor = auth()->user()->profile;
+@endphp
 @extends('dashboard')
 
 @section('title', 'Créer une tâche')
 
 @section('contents')
+{{--    @dd($teachers)--}}
     <div class="flex justify-between">
         <h1 class="text-3xl font-bold">Créer une tâche</h1>
         <a href="{{ url()->previous() }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Retour</a>
@@ -38,22 +42,24 @@
             </div>
 
             <div class="mb-4">
-                <label for="teacher_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Identifiant du professeur</label>
-                <select name="teacher_id" id="teacher_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                <label for="teacher_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Professeur</label>
+                {{--<select name="teacher_id" id="teacher_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                     <option value="">Sélectionner un professeur</option>
-                   {{-- @foreach($teachers as $teacher)
-                        <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
-                    @endforeach--}}
-                </select>
+                    @foreach($teachers as $teacher)
+                        <option value="{{ $teacher['id'] }}">{{ $teacher['name'] }}</option>
+                    @endforeach
+                </select>--}}
+                <input type="text" name="teacher_id" id="teacher_id" value="{{ $professor->id }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 hidden" >
+                <input type="text" name="teacher_name" id="teacher_name" value="{{ $professor->name }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" >
             </div>
 
             <div class="mb-4">
-                <label for="schoolClass_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Identifiant de la classe</label>
+                <label for="schoolClass_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Classe</label>
                 <select name="schoolClass_id" id="schoolClass_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
                     <option value="">Sélectionner une classe</option>
-                   {{-- @foreach($schoolClasses as $schoolClass)
-                        <option value="{{ $schoolClass->id }}">{{ $schoolClass->name }}</option>
-                    @endforeach--}}
+                    @foreach($schoolClasses as $schoolClass)
+                        <option value="{{ $schoolClass->id }}">{{ $schoolClass->level.' '.$schoolClass->name }}</option>
+                    @endforeach
                 </select>
             </div>
 
