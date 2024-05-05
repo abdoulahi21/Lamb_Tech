@@ -1,12 +1,12 @@
 @extends('dashboard')
 
-@section('title', 'Classes')
+@section('title', 'Profils')
 
 @section('contents')
 
     <div class="flex justify-between">
-        <h1 class="text-3xl font-bold">Classes</h1>
-        <a href="{{ route('schoolclass.create') }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter une classe</a>
+        <h1 class="text-3xl font-bold">Profils</h1>
+        <a href="{{ route('manager.profile.create') }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter un profil</a>
     </div>
 
     <div class="flex flex-col mt-8">
@@ -20,16 +20,17 @@
                                 Nom
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Niveau
+                                Téléphone
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Montant mensuel
+                                Email
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Montant d'inscription
+                                Genre
                             </th>
+
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
-                                Mois requis
+                                Rôle
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
                                 Actions
@@ -37,35 +38,46 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                        @foreach($classes as $class)
+                        @foreach($profiles as $profile)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                        {{ $class->name }}
+                                        {{ $profile->name }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                        {{ $class->level }}
+                                        {{ $profile->phone }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                        {{ $class->monthly_amount }}
-                                    </div>
+                                    @if($profile->user)
+                                        {{ $profile->user->email }}
+                                    @else
+                                        <span>Email non défini</span>
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                        {{ $class->registration_amount }}
+                                        {{ $profile->gender }}
                                     </div>
                                 </td>
+{{--                                <td class="px-6 py-4 whitespace-nowrap">--}}
+{{--                                    @if($profile->user && $profile->user->photo)--}}
+{{--                                        <img src="{{ asset('storage/' . $profile->image) }}" alt="Photo de profil" class="h-8 w-8 rounded-full">--}}
+{{--                                    @else--}}
+{{--                                        <span>Aucune photo</span>--}}
+{{--                                    @endif--}}
+{{--                                </td>--}}
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm font-medium text-gray-900 dark:text-white">
-                                        {{ $class->month_required }}
-                                    </div>
+                                    @if($profile->user)
+                                        {{ $profile->user->role }}
+                                    @else
+                                        <span>Non défini</span>
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <a href="{{ route('schoolclass.edit', $class) }}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+                                    <a href="{{ route('manager.profile.edit', $profile) }}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
                                 </td>
                             </tr>
                         @endforeach
