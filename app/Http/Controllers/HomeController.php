@@ -19,7 +19,7 @@ class HomeController extends Controller
         //je veux recuperer le nombre total d'utilisateurs qui ont le role student
         $students = User::where('role', 'student')->get();
         //je veux recuperer le nombre total des cour
-        $courses = Course::all();
-        return view('home',compact('teachers','classes','students','courses'));
+        $user = User::all();
+        return view('home',compact('teachers','classes','students','user'));
     }
 }
