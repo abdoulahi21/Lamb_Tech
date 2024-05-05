@@ -6,7 +6,7 @@
 
     <div class="flex justify-between">
         <h1 class="text-3xl font-bold">Classes</h1>
-        <a href="{{ route('schoolclass.create') }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter une classe</a>
+        <a href="{{ route('manager.schoolclass.create') }}" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Ajouter une classe</a>
     </div>
 
     <div class="flex flex-col mt-8">
@@ -65,7 +65,7 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <a href="{{ route('schoolclass.edit', $class) }}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+                                    <a href="{{ route('manager.schoolclass.edit', $class) }}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
                                 </td>
                             </tr>
                         @endforeach
